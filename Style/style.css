@@ -14,7 +14,7 @@ body {
     margin: 80px 0px 32px;
 }
 
-.containter__child {
+.container-child {
     max-width: 300px;
     width: 100%;
 }
@@ -22,7 +22,7 @@ body {
 .calculator {
     border-radius: 1rem;
 }
-
+/* Starts display of the calculator*/
 .calculator .display {
     background: #212121;
     padding: 1rem;
@@ -59,3 +59,31 @@ output.result {
     font-weight: 600;
     color: #23c223;
 }
+
+/* End of display of the caculator */
+
+/* Start of body of the calculator */
+.calculator .all-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%;
+    grid-gap: .5rem;
+    padding: 1rem;
+    background: #212121;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.all-buttons button {
+    font-size: 1.325rem;
+    padding: 1rem 0;
+    font-weight: 540;
+    background: #616161;
+    border: 0px solid transparent;
+    outline: none;
+    border-radius: 100%;
+    text-decoration: none;
+    color: #dfdfdf;
+    cursor: pointer;
+}
+/* End of body of the calculator */
