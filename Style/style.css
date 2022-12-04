@@ -85,5 +85,46 @@ output.result {
     text-decoration: none;
     color: #dfdfdf;
     cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+button.equals {
+    grid-column: 3 / 5;
+    border-radius: 2.5rem;
+}
+
+button.equals:hover {
+    background: limegreen;
+    color: #ffffff;
+    transform: translateY(-0.2rem);
+}
+
+button.digits:hover,
+button.decimal:hover {
+    background: #bdbdbd;
+    color: #212121;
+    transform: translateY(-0.2rem);
+}
+
+button.allclear:hover,
+button.clear:hover {
+    background: #ff6161;
+    color: #ffffff;
+    transform: translateY(-0.2rem);
+}
+
+button.operators:hover {
+    background: mediumturquoise;
+    color: #212121;
+    transform: translateY(-0.2rem);
+}
+
+button.digits:active,
+button.decimal:active,
+button.operators:active,
+button.equals:active,
+button.allclear:active,
+button.clear:active {
+    transform: translateY(0rem);
 }
 /* End of body of the calculator */
