@@ -3,7 +3,7 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-family: Roboto, Helvetica, sans-serif;
-    background: #74c69d;
+    background: linear-gradient(to right, #ffb649, #ff651e);
 }
 
 .container-parent {
@@ -128,3 +128,9 @@ button.clear:active {
     transform: translateY(0rem);
 }
 /* End of body of the calculator */
+
+footer {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
