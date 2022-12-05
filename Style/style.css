@@ -25,7 +25,7 @@ body {
 /* Starts display of the calculator*/
 .calculator .display {
     background: #212121;
-    padding: 1rem;
+    padding: 1rem 1rem 0rem 1rem;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
 }
@@ -56,8 +56,8 @@ output.user-input {
 
 output.result {
     font-size: 2.725rem;
-    font-weight: 600;
-    color: #23c223;
+    font-weight: 400;
+    color: #44bb44;
 }
 
 /* End of display of the caculator */
@@ -75,13 +75,12 @@ output.result {
 }
 
 .all-buttons button {
-    font-size: 1.325rem;
+    font-size: 1.625rem;
     padding: 1rem 0;
     font-weight: 540;
-    background: #616161;
+    background: transparent;
     border: 0px solid transparent;
     outline: none;
-    border-radius: 100%;
     text-decoration: none;
     color: #dfdfdf;
     cursor: pointer;
@@ -90,7 +89,6 @@ output.result {
 
 button.equals {
     grid-column: 3 / 5;
-    border-radius: 2.5rem;
 }
 
 button.equals:hover {
