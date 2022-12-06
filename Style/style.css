@@ -45,7 +45,8 @@ body {
     outline: none;
     background: transparent;
     width: 100%;
-
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 output.user-input {
