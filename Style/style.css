@@ -49,13 +49,13 @@ body {
     word-break: break-all;
 }
 
-output.user-input {
+output.previous-operand {
     font-size: 1.925rem;
     font-weight: 400;
     color: whitesmoke;
 }
 
-output.result {
+output.current-operand {
     font-size: 2.725rem;
     font-weight: 400;
     color: #44bb44;
