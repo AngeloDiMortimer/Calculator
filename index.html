@@ -15,37 +15,37 @@
                
                 <div class="display">
                     <div class="calculator-display">
-                        <output data-previous-operand class="previous-operand">
-                            0
+                        <output class="previous-operand" type="text" id="previous-operand">
+                        0
                         </output>
-                        <output data-current-operand class="current-operand">&nbsp;</output>
+                        <output class="current-operand" type="text" id="current-operand">&nbsp;</output>
                     </div>
                 </div>
 
                 <div class="all-buttons">
-                    <button data-all-clear class="allclear" >AC</button>
-                    <button data-clear class="clear" >C</button>
-                    <button data-operation class="operators">&#37</button>
-                    <button data-operation class="operators">&#247</button>
+                    <button class="allclear" data-type="reset" id="allclear" >AC</button>
+                    <button class="clear" data-type="backspace" id="clear">C</button>
+                    <button class="operators" data-type="operator" id="remainder" value="%" >&#37</button>
+                    <button class="operators" data-type="operator" id="divide" value="/" >&#247</button>
 
-                    <button data-number class="digits">7</button>
-                    <button data-number class="digits">8</button>
-                    <button data-number class="digits">9</button>
-                    <button data-operation class="operators">&#43</button>
+                    <button class="digits" data-type="number" id="digit-7" value="7" >7</button>
+                    <button class="digits" data-type="number" id="digit-8" value="8">8</button>
+                    <button class="digits" data-type="number" id="digit-9" value="9">9</button>
+                    <button class="operators" data-type="operator" id="plus" value="+">&#43</button>
 
-                    <button data-number class="digits">4</button>
-                    <button data-number class="digits">5</button>
-                    <button data-number class="digits">6</button>
-                    <button data-operation class="operators">&#45</button>
+                    <button class="digits" data-type="number" id="digit-4" value="4">4</button>
+                    <button class="digits" data-type="number" id="digit-5" value="5">5</button>
+                    <button class="digits" data-type="number" id="digit-6" value="6">6</button>
+                    <button class="operators" data-type="operator" id="minus" value="-">&#45</button>
 
-                    <button data-number class="digits">1</button>
-                    <button data-number class="digits">2</button>
-                    <button data-number class="digits">3</button>
-                    <button data-operation class="operators">&#215</button>
+                    <button class="digits" data-type="number" id="digit-1" value="1" >1</button>
+					<button class="digits" data-type="number" id="digit-2" value="2" >2</button>
+					<button class="digits" data-type="number" id="digit-3" value="3" >3</button>
+					<button class="operators" data-type="operator" id="multiply" value="x" >&#215</button>
 
-                    <button data-number class="digits">0</button>
-                    <button data-number class="decimal">.</button>
-                    <button data-equals class="equals">&#61</button>
+					<button class="digits" data-type="number" id="digit-0" value="0" >0</button>
+					<button class="decimal" data-type="decimal" id="decimal" value="." >.</button>
+					<button class="equals" data-type="equal" id="equals" value="=" >&#61</button>
                 </div>
             </div>
         </div>
