@@ -23,6 +23,22 @@ calKeys.addEventListener('click', (e) => {
         previousOp.textContent = currentValue;
     }
 
+    if (type === 'reset') {
+        currentValue = '';
+        previousOp.textContent = '0';
+    }
+
+    if (type === 'backspace') {
+        let containerValue = currentValue.replace(/.$/, '');;
+        currentValue = containerValue;
+        console.log(currentValue);
+        if (currentValue === '') {
+            previousOp.textContent = '0';
+        } else {
+            previousOp.textContent = currentValue;
+        }
+    }
+
     calculator.dataset.previousKeyType = type;
 });
 
