@@ -23,6 +23,11 @@ calKeys.addEventListener('click', (e) => {
         previousOp.textContent = displayValue;
     }
 
+    if(type === 'decimal' && (previousKeyType === 'number' || displayValue === '')) {
+        addDecimal();
+        previousOp.textContent = displayValue;
+    }
+
     if (type === 'reset') { //resets all displayed numbers
         displayValue = '';
         currentOp.textContent = '\u00A0'; //nbsp; in HTML
@@ -54,6 +59,16 @@ const handleNumber = (num) => {
 const handleoperator = (op) => {
     displayValue += op;
 };
+
+const addDecimal = () => {
+    if(displayValue === '') {
+        displayValue += '0';
+        displayValue += '.';
+    } else if (!displayValue.includes('.')) {
+        displayValue += '.';
+    }
+};
+
 
 
 const calculation = (firstNumber, operator, secondNumber) => {
@@ -88,7 +103,6 @@ const handleCalculation = (displayValue) => {
             displayValue.splice(operatorIndex - 1, 3, result);
         }
     }
-    console.log(result);
     return result;
 
-}
+};
