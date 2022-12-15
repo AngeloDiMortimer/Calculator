@@ -58,7 +58,7 @@ output.previous-operand {
 output.current-operand {
     font-size: 2.725rem;
     font-weight: 400;
-    color: whitesmoke;
+    color: #1dff4e;
 }
 
 /* End of display of the caculator */

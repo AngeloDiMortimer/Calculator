@@ -2,7 +2,7 @@ const calKeys = document.querySelector('.all-buttons');
 const previousOp = document.querySelector('#previous-operand');
 const currentOp = document.querySelector('#current-operand');
 const calculator = document.querySelector('.calculator');
-let currentValue = '';
+let displayValue = '';
 
 
 calKeys.addEventListener('click', (e) => {
@@ -15,37 +15,80 @@ calKeys.addEventListener('click', (e) => {
     
     if (type === 'number') { //types the numbers on screen
         handleNumber(keyValue);
-        previousOp.textContent = currentValue;
+        previousOp.textContent = displayValue;
     }
 
-    if (type === 'operator' && previousKeyType !== 'operator') {
-        handleoperator(keyValue);
-        previousOp.textContent = currentValue;
+    if (type === 'operator' && previousKeyType !== 'operator') { //types operators on screen
+        handleoperator(key.value);
+        previousOp.textContent = displayValue;
     }
 
-    if (type === 'reset') {
-        currentValue = '';
+    if (type === 'reset') { //resets all displayed numbers
+        displayValue = '';
+        currentOp.textContent = '\u00A0'; //nbsp; in HTML
         previousOp.textContent = '0';
     }
 
-    if (type === 'backspace') {
-        let containerValue = currentValue.replace(/.$/, '');;
-        currentValue = containerValue;
-        console.log(currentValue);
-        if (currentValue === '') {
+    if (type === 'backspace') { //deletes a single number or operator on screen each time is pressed
+        let containerValue = displayValue.replace(/.$/, '');;
+        displayValue = containerValue;
+        if (displayValue === '') { //if there's nothing on screen it defaults to 0
             previousOp.textContent = '0';
-        } else {
-            previousOp.textContent = currentValue;
+        } else { //else it shows the current value 
+            previousOp.textContent = displayValue;
         }
+    }
+
+    if (type === 'equal') { //performs the calculation
+        const finalResult = handleCalculation(displayValue);
+        currentOp.textContent = finalResult;
     }
 
     calculator.dataset.previousKeyType = type;
 });
 
 const handleNumber = (num) => {
-    currentValue += num;
+    displayValue += num;
 };
 
 const handleoperator = (op) => {
-    currentValue += op;
+    displayValue += op;
 };
+
+
+const calculation = (firstNumber, operator, secondNumber) => {
+
+    firstNumber = Number(firstNumber);
+    secondNumber = Number(secondNumber);
+    if(operator === '+') return firstNumber + secondNumber;
+    if(operator === '-') return firstNumber - secondNumber;
+    if(operator === 'x') return firstNumber * secondNumber;
+    if(operator === '/') return firstNumber / secondNumber;
+    if(operator === '%') return firstNumber % secondNumber;
+};
+
+const handleCalculation = (displayValue) => {
+    displayValue = displayValue.match(/[^\d()]+|[\d.]+/g); //splits the display value into an array separated by the operators
+
+    const operators = ['/', 'x', '%', '+', '-'];
+    let firstNumber;
+    let secondNumber;
+    let operator;
+    let operatorIndex;
+    let result;
+
+    for (var i = 0; i < operators.length; i++) {
+        while(displayValue.includes(operators[i])) {
+            operatorIndex = displayValue.findIndex(item => item === operators[i]);
+            firstNumber = displayValue[operatorIndex - 1];
+            operator = displayValue[operatorIndex];
+            console.log(operator);
+            secondNumber = displayValue[operatorIndex + 1];
+            result = calculation(firstNumber, operator, secondNumber);
+            displayValue.splice(operatorIndex - 1, 3, result);
+        }
+    }
+    console.log(result);
+    return result;
+
+}
