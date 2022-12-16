@@ -1,6 +1,6 @@
 const calKeys = document.querySelector('.all-buttons');
-const inputScreen = document.querySelector('#previous-operand');
-const resultScreen = document.querySelector('#current-operand');
+const inputScreen = document.querySelector('#input-screen');
+const resultScreen = document.querySelector('#result-screen');
 const calculator = document.querySelector('.calculator');
 let displayValue = '';
 let isEqualsPressed = false;
@@ -92,18 +92,18 @@ const calculation = (firstNumber, operator, secondNumber) => {
 
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
-    if(operator === '+') return firstNumber + secondNumber;
-    if(operator === '-') return firstNumber - secondNumber;
-    if(operator === 'x') return firstNumber * secondNumber;
+    if(operator === 'plus' || operator === '+') return firstNumber + secondNumber;
+    if(operator === 'minus' || operator === '-') return firstNumber - secondNumber;
+    if(operator === 'multiply' || operator === 'x') return firstNumber * secondNumber;
    
-    if(operator === '/') {
-        if(secondNumber === '0') {
+    if(operator === 'divide' || operator === '/') {
+        if(secondNumber === 0) {
             alert('It is not possible to divide by 0');
             return;
         }
-        firstNumber / secondNumber;
+        return firstNumber / secondNumber;
     };
-    if(operator === '%') return firstNumber % secondNumber;
+    if(operator === 'remainder' || operator === '%') return firstNumber % secondNumber;
 };
 
 const handleCalculation = (displayValue) => {
@@ -129,3 +129,32 @@ const handleCalculation = (displayValue) => {
     return result;
 
 };
+
+//Keyboard support
+document.addEventListener('keydown', (event) => {
+	
+	let getOperators = {
+		'/': 'divide',
+		'x': 'multiply',
+		'*': 'multiply',
+		'%': 'remainder',
+		'+': 'plus',
+		'-': 'minus'
+	}
+
+	if(!isNaN(event.key) && event.key !== ' '){
+		document.getElementById(`digit-${event.key}`).click();
+	}
+	if (['/', 'x', '+', '-', '*', '%'].includes(event.key)) {
+		document.getElementById(getOperators[event.key]).click();
+	}
+	if (event.key === 'Backspace' || event.key ==='c' || event.key === 'C') {
+		document.getElementById('clear').click();	
+	}
+	if (event.key === '=' || event.key === 'Enter') {
+		document.getElementById('equals').click();	
+	}
+	if (event.key === '.') {
+		document.getElementById('decimal').click();	
+	}
+});
