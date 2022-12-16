@@ -19,7 +19,7 @@ calKeys.addEventListener('click', (e) => {
         inputScreen.textContent = displayValue;
     }
 
-    if (type === 'operator' && previousKeyType !== 'operator' && !isEqualsPressed) { //types operators on screen
+    if (type === 'operator' && previousKeyType !== 'operator' && !isEqualsPressed && previousKeyType === 'number') { //types operators on screen
         handleoperator(key.value);
         inputScreen.textContent = displayValue;
     }
